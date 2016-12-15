@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>>me.drakeet.plugin.multitype</id>
     <name>MultiTypeTemplates</name>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
     <vendor email="drakeet.me@gmail.com" url="https://drakeet.me">drakeet</vendor>
 
     <description><![CDATA[
@@ -11,7 +11,8 @@
     ]]></description>
 
     <change-notes><![CDATA[
-      Fixed: Document is locked by write PSI operations.
+      * Supported MultiType v2.3.0<br/>
+      * Changed the Action to the position after "Create Java Class Action"
     ]]>
     </change-notes>
 
@@ -31,10 +32,10 @@
 
     <actions>
         <action id="CreateItemFileAction" class="me.drakeet.plugin.multitype.CreateItemFilesAction"
-            text="MultiType Item"
-            description="Create an Item class and ItemViewProvider."
+            text="MultiType Item" description="Create an Item class and ItemViewProvider."
             icon="/fileTypes/javaClass.png">
-            <add-to-group group-id="NewGroup" anchor="first"/>
+            <add-to-group group-id="NewGroup"
+                relative-to-action="NewFile" anchor="before"/>
         </action>
     </actions>
 

@@ -46,8 +46,8 @@ public class CreateItemFilesAction extends JavaCreateTemplateInPackageAction<Psi
     @Override
     protected void buildDialog(final Project project, PsiDirectory directory, CreateFileFromTemplateDialog.Builder builder) {
         builder.setTitle("Create Item and ItemViewProvider")
-               .addKind("Class", PlatformIcons.CLASS_ICON,
-                   JavaTemplateUtil.INTERNAL_CLASS_TEMPLATE_NAME);
+            .addKind("Class", PlatformIcons.CLASS_ICON,
+                JavaTemplateUtil.INTERNAL_CLASS_TEMPLATE_NAME);
 
         builder.setValidator(new InputValidatorEx() {
             @Override
@@ -118,10 +118,10 @@ public class CreateItemFilesAction extends JavaCreateTemplateInPackageAction<Psi
             @Override protected void run() throws Throwable {
                 manager.doPostponedOperationsAndUnblockDocument(document);
                 document.setText(document.getText()
-                    .replace("MULTITYPE_ITEM_CLASS", className)
-                    .replace("MULTITYPE_ITEM_LOWER_NAME",
+                    .replace("MTI_CLASS", className)
+                    .replace("MTI_LOWER_NAME",
                         CaseFormat.UPPER_CAMEL.to(LOWER_UNDERSCORE, className))
-                    .replace("MULTITYPE_ITEM_NAME",
+                    .replace("MTI_NAME",
                         CaseFormat.UPPER_CAMEL.to(LOWER_CAMEL, className)));
                 CodeStyleManager.getInstance(itemClass.getProject()).reformat(itemClass);
             }
